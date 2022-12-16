@@ -25,6 +25,6 @@ function goodPractices() {
 }
 
 // then, call the function so it runs!
-// goodPractices()
+goodPractices()
 
 // console.log(numPointsScored("Jeff Adrien"))
