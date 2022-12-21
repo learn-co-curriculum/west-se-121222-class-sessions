@@ -10,28 +10,28 @@ As a user, I can:
 
 2. View the 1st moview details on page load
   - [] (re-fetch data if necessary)
-  - [] select the proper DOM elements
-  - [] Set attributes of DOM elements with selected movie obj properties
-  - [] get 1st movie obj from movieArr and send to render fn
+  - [x] select the proper DOM elements
+  - [x] Set attributes of DOM elements with selected movie obj properties
+  - [x] get 1st movie obj from movieArr and send to render fn
 
 3. Click a movie in the nav and see its details in the detail section
-  - [] add event listener to each <img> in nav (click event)
-  - [] use detail render fn from above 
-  - [] listener passes movie obj to fn
-  - [] render fn sets attr of detail elements with obj values
+  - [x] add event listener to each <img> in nav (click event)
+  - [x] use detail render fn from above 
+  - [x] listener passes movie obj to fn
+  - [x] render fn sets attr of detail elements with obj values
 
 4. Click a "watched" button which toggles and persists only in DOM
-  - [] add event listener to each button
-  - [] cb needs a conditional that sets the button text
-  - [] cb will flip the value of watched for the detail movie obj
+  - [x] add event listener to the button
+  - [x] cb needs a conditional that sets the button text
+  - [x] cb will flip the value of watched for the detail movie obj
 
 5. Enter a number of drops for each movie and have it persist in DOM
-  - [] select the form
-  - [] add listener to form
-  - [] preventDefault()
-  - [] get input value from form
-  - [] increment the `blood_amount` of detail movie with input value
-  - [] update the DOM
+  - [x] select the form
+  - [x] add listener to form
+  - [x] preventDefault()
+  - [x] get input value from form
+  - [x] increment the `blood_amount` of detail movie with input value
+  - [x] update the DOM
 
 MANTRA
 1. Get data
