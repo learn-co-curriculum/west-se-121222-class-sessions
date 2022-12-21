@@ -8,18 +8,18 @@ As a user, I can:
  - [x] select menu element from DOM
  - [x] append new <img> to menu
 2. Click on a menu img to see the details of that ramen shown in the details section
-  - [] add event listener
-  - [] handle click event
-  - [] select elements to update from the DOM
-  - [] update element attributes with selected ramen data
+  - [x] add event listener
+  - [x] handle click event
+  - [x] select elements to update from the DOM
+  - [x] update element attributes with selected ramen data
 3. Submit a form to create a new ramen in the menu (no persistence--back)
-  - [] select the form
-  - [] attach a listener
-  - [] handle the submit event
-  - [] preventDefault()
-  - [] get value from each input (save -> var)
-  - [] use data to create a new ramen
-  - [] add ramen to the menu (reuse a fn)
+  - [x] select the form
+  - [x] attach a listener
+  - [x] handle the submit event
+  - [x] preventDefault()
+  - [x] get value from each input (save -> var)
+  - [x] use data to create a new ramen
+  - [x] add ramen to the menu (reuse a fn)
 
 ## Advanced deliverables
 1. See details of the 1st ramen on page load
