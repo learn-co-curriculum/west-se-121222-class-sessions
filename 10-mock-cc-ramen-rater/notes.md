@@ -22,9 +22,9 @@ As a user, I can:
   - [x] add ramen to the menu (reuse a fn)
 
 ## Advanced deliverables
-1. See details of the 1st ramen on page load
-2. Change the rating and comment with an edit form (no persistence--back)
-3. Delete a ramen from menu (no persistence--back)
+1. [x] See details of the 1st ramen on page load
+2. [x] Change the rating and comment with an edit form (no persistence--back)
+3. [x] Delete a ramen from menu (no persistence--back)
 
 ### Extra advanced
 1. add persistence to the backend to the above where possible
