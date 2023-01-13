@@ -18,6 +18,11 @@ function App() {
   //   return task.category === selectedCategory
   // })
 
+  function handleAddTask(newTask) {
+    console.log("🚀 ~ file: App.js:22 ~ handleAddTask ~ newTask", newTask)
+    setTasks([...tasks, newTask])
+  }
+
 
   return (
     <div className="App">
@@ -27,7 +32,10 @@ function App() {
         selectedCategory={selectedCategory} 
         onSelectCategory={setSelectedCategory}
       />
-      <NewTaskForm />
+      <NewTaskForm 
+        categories={CATEGORIES.filter(category => category !== "All")}
+        onAddTask={handleAddTask}
+      />
       <TaskList tasks={filteredTasks}/>
     </div>
   );
