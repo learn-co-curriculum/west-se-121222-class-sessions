@@ -23,6 +23,11 @@ function App() {
     setTasks([...tasks, newTask])
   }
 
+  function handleDelete(taskText){
+    console.log("🚀 ~ file: App.js:27 ~ handleDelete ~ taskText", taskText)
+    setTasks(tasks.filter(task => task.text !== taskText))
+  }
+
 
   return (
     <div className="App">
@@ -36,7 +41,7 @@ function App() {
         categories={CATEGORIES.filter(category => category !== "All")}
         onAddTask={handleAddTask}
       />
-      <TaskList tasks={filteredTasks}/>
+      <TaskList tasks={filteredTasks} onDelete={handleDelete} />
     </div>
   );
 }
