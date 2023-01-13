@@ -13,16 +13,25 @@ function NewTaskForm({ categories, onAddTask }) {
     setText("")
     setCategory("Code")
   }
-  
+
   return (
     <form onSubmit={handleSubmit} className="new-task-form">
       <label>
         Details
-        <input type="text" name="text" value={text} onChange={e => setText(e.target.value)}/>
+        <input 
+          type="text" 
+          name="text" 
+          value={text} 
+          onChange={e => setText(e.target.value)}
+        />
       </label>
       <label>
         Category
-        <select name="category" value={category} onChange={e => setCategory(e.target.value)}>
+        <select 
+          name="category" 
+          value={category} 
+          onChange={e => setCategory(e.target.value)}
+        >
           {formOptions}
         </select>
       </label>

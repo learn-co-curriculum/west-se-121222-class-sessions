@@ -41,7 +41,10 @@ function App() {
         categories={CATEGORIES.filter(category => category !== "All")}
         onAddTask={handleAddTask}
       />
-      <TaskList tasks={filteredTasks} onDelete={handleDelete} />
+      <TaskList 
+        tasks={filteredTasks} 
+        onDelete={handleDelete} 
+      />
     </div>
   );
 }
