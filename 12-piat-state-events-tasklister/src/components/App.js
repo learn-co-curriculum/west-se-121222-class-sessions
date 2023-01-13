@@ -10,13 +10,25 @@ console.log({ CATEGORIES, TASKS });
 function App() {
 
   const [tasks, setTasks] = useState(TASKS)
+  const [selectedCategory, setSelectedCategory] = useState('All')
+
+  const filteredTasks = tasks.filter(task => task.category === selectedCategory || selectedCategory === "All")
+  // const filteredTasks = tasks.filter(task => {
+  //   if (selectedCategory === "All") return true
+  //   return task.category === selectedCategory
+  // })
+
 
   return (
     <div className="App">
       <h2>My tasks</h2>
-      <CategoryFilter />
+      <CategoryFilter 
+        categories={CATEGORIES} 
+        selectedCategory={selectedCategory} 
+        onSelectCategory={setSelectedCategory}
+      />
       <NewTaskForm />
-      <TaskList tasks={tasks}/>
+      <TaskList tasks={filteredTasks}/>
     </div>
   );
 }
