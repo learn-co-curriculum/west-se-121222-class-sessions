@@ -1,9 +1,9 @@
 import React from 'react'
 import Track from './Track'
 
-function TracksList({ tracks }) {
+function TracksList({ tracks, onDelete }) {
 
-  const trackRows = tracks.map(track => <Track key={track.id} {...track} />)
+  const trackRows = tracks.map(track => <Track key={track.id} {...track} onDelete={onDelete} />)
 
   return (
     <table>

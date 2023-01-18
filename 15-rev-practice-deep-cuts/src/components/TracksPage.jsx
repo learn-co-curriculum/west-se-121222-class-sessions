@@ -38,16 +38,27 @@ function TracksPage() {
         .then(res => res.json())
     }
 
+    function deleteTrack(id){
+      const options = { method: 'DELETE'}
+      fetch(baseUrl + `/${id}`, options)
+    }
+
     function addTrack(newTrack){
       postTrack(newTrack)
         .then(newTrack => setTracks([...tracks, newTrack]))
+    }
+
+    function removeTrack(id){
+      const updatedTracks = tracks.filter(track => track.id !== id)
+      setTracks(updatedTracks)
+      deleteTrack(id)
     }
     
   return (
     <div>
       <Search searchTerm={searchTerm} onSearchChange={setSearchTerm} />
       <AddTrackForm onSubmitTrack={addTrack}/>
-      <TracksList tracks={filteredTracks}/>
+      <TracksList tracks={filteredTracks} onDelete={removeTrack}/>
     </div>
   )
 }

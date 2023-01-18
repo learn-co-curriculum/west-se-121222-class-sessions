@@ -1,7 +1,7 @@
 import React from 'react'
 import defaultVinyl from '../assets/vinyl_PNG111.png'
 
-function Track({ artist, image, title, BPM}) {
+function Track({ id, artist, image, title, BPM, onDelete}) {
   return (
     <tr className="table-row">
         <td className="row-image">
@@ -11,6 +11,7 @@ function Track({ artist, image, title, BPM}) {
         <td className="row-title">{title}</td>
         <td>{artist}</td>
         <td>{BPM}</td>
+        <td><i onClick={() => onDelete(id)}>🗑</i></td>
     </tr>
   )
 }
