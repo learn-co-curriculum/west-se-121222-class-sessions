@@ -41,6 +41,24 @@
       "name": "Fiddle Leaf Fig",
       "image": "./images/fiddle-leaf-fig.jpg",
       "price": 55
+    },
+    {
+      "name": "tetrapanax",
+      "image": "mypic",
+      "price": 35,
+      "id": 8
+    },
+    {
+      "name": "Calathea",
+      "image": "./images/calathea.jpg",
+      "price": 14.55,
+      "id": 9
+    },
+    {
+      "name": "venus flytrap",
+      "image": "flytrap.jpg",
+      "price": 14.99,
+      "id": 10
     }
   ]
 }

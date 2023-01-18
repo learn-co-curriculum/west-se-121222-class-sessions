@@ -14,9 +14,14 @@ function PlantPage() {
     
   }, [])
 
+  const addPlant = newPlant => {
+    console.log("🚀 ~ file: PlantPage.js:18 ~ addPlant ~ newPlant", newPlant)
+    setPlantsArr([...plantsArr, newPlant])
+  }
+
   return (
     <main>
-      <NewPlantForm />
+      <NewPlantForm onSubmitPlant={addPlant} />
       <Search />
       <PlantList plants={plantsArr}/>
     </main>
