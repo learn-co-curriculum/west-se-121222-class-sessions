@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Search from './Search'
 import AddTrackForm from './AddTrackForm'
 import TracksList from './TracksList'
+import Sort from './Sort'
 
 function TracksPage() {
 
@@ -9,6 +10,7 @@ function TracksPage() {
 
     const [tracks, setTracks] = useState([])
     const [searchTerm, setSearchTerm] = useState("")
+    const [sortBy, setSortBy] = useState("artist")
 
     useEffect(() => {
       fetch(baseUrl)
@@ -21,6 +23,13 @@ function TracksPage() {
             track.artist.toLowerCase().includes(searchTerm.toLowerCase()) ||
             track.BPM.toString().includes(searchTerm)
     })
+      .sort((track1, track2) => {
+        if (sortBy === 'artist') {
+          return track1.artist.localeCompare(track2.artist)
+        } else {
+          return track1.BPM - track2.BPM
+        }
+      })
 
     function postTrack(newTrack){
       const newTrackBody = {
@@ -56,6 +65,7 @@ function TracksPage() {
     
   return (
     <div>
+      <Sort sortBy={sortBy} onSortChange={setSortBy}/>
       <Search searchTerm={searchTerm} onSearchChange={setSearchTerm} />
       <AddTrackForm onSubmitTrack={addTrack}/>
       <TracksList tracks={filteredTracks} onDelete={removeTrack}/>
