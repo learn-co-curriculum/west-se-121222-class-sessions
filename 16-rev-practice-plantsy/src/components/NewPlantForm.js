@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+// this obj can be used both to set the initial value in state but also to reset the form
+// after submission
 const defaultInputs = {
   name: "",
   image: "",
@@ -22,6 +24,8 @@ function NewPlantForm({ onSubmitPlant }) {
       },
       body: JSON.stringify({
         ...formInputs,
+        // HTML inputs alway return their values as strings, so if we want to keep price a number
+        // we need to convert (coerce) it into a float (number with decimal places)
         price: parseFloat(formInputs.price)
       })
     }
@@ -32,8 +36,10 @@ function NewPlantForm({ onSubmitPlant }) {
   const handleSubmit = e => {
     e.preventDefault()
     postPlant()
+      // call the callback function, sending the newPlant object up to PlantPage
+      // pessimitic rendering
      .then(onSubmitPlant)
-    setFormInputs(defaultInputs)
+    setFormInputs(defaultInputs) // reset the form
   }
 
   const { name, image, price } = formInputs
