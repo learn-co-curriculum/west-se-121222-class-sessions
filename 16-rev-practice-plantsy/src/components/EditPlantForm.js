@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 export default function EditPlantForm({ id, price, onChangePrice}) {
 
-    const [inputPrice, setInputPrice] = useState(price)
+    const [inputPrice, setInputPrice] = useState(price) // called inputPrice to avoid name collision with price in props
 
     const patchPrice = () => {
         const config = {
@@ -19,8 +19,8 @@ export default function EditPlantForm({ id, price, onChangePrice}) {
     const handlePriceSubmit = e => {
         e.preventDefault()
         patchPrice()
-         .then(onChangePrice)
-         
+         .then(onChangePrice) // pessimistic rendering; we're waiting for a successful response from the backend before we update the frontend to show that change
+
     }
 
   return (
