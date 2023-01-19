@@ -20,6 +20,15 @@ function PlantPage() {
     setPlantsArr([...plantsArr, newPlant])
   }
 
+  const updatePlants = updatedPlant => {
+    const updatedPlants = plantsArr.map(plant => plant.id === updatedPlant.id ? updatedPlant : plant)
+    setPlantsArr(updatedPlants)
+  }
+
+  const removePlant = id => {
+    setPlantsArr(plantsArr.filter(plant => plant.id !== id))
+  }
+
   const filteredPlants = plantsArr.filter(plant => {
     // return plant.name.includes(searchTerm) // case-sensitive version
     return plant.name.toLowerCase().includes(searchTerm.toLowerCase()) // case-insensitive version
@@ -29,7 +38,7 @@ function PlantPage() {
     <main>
       <NewPlantForm onSubmitPlant={addPlant} />
       <Search searchTerm={searchTerm} onSearchChange={setSearchTerm} />
-      <PlantList plants={filteredPlants}/>
+      <PlantList plants={filteredPlants} onChangePrice={updatePlants} onDeletePlant={removePlant} />
     </main>
   );
 }
