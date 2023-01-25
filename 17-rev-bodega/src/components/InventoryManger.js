@@ -36,8 +36,11 @@ function InventoryManager() {
         fetch(baseUrl + `/${id}`, {method: 'DELETE'})
         setReorderInventory(reorderInventory.filter(inventory => inventory.id !== id))
         setInventory(inventory.filter(inventory => inventory.id !== id))
-
     }
+
+    // function removeFromStateArr(stateArr, setArrFn, id){
+    //     setArrFn(stateArr.filter(inventory => inventory.id !== id))
+    // }
 
     return(
         <div className="container">
