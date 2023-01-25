@@ -14,7 +14,6 @@ function InventoryManager() {
     }, [])
     
     function addToReorders(item){
-        console.log("🚀 ~ file: InventoryManger.js:17 ~ addToReorders ~ item", item)
         const target = reorderInventory.find(inventory => inventory.id === item.id)
         if (!target) {
             setReorderInventory([...reorderInventory, item])
@@ -25,10 +24,21 @@ function InventoryManager() {
         }
     }
 
+    function removeFromReorders(item){
+        console.log("🚀 ~ file: InventoryManger.js:28 ~ removeFromReorders ~ item", item)
+        setReorderInventory(reorderInventory.filter(inventory => inventory.id !== item.id))
+    }
+
     return(
         <div className="container">
-            <CurrentInventoryList inventory={inventory} onAddItem={addToReorders} />
-            <ReorderInventoryList reorders={reorderInventory}/>
+            <CurrentInventoryList 
+              inventory={inventory} 
+              onAddItem={addToReorders} 
+            />
+            <ReorderInventoryList 
+              reorders={reorderInventory} 
+              onRemoveItem={removeFromReorders}
+            />
         </div>
     );
 }
