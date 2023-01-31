@@ -61,3 +61,49 @@ function printAllNumbersThenAllPairSums(numbers) {
       });
     });
 }
+
+// Always describe the "worst case"
+
+// O(n) linear
+function contains(haystack, needle){
+  for (let i = 0; i < haystack.length; i++){
+    if (haystack[i] == needle) {
+      return true
+    }
+  }
+  return false
+}
+
+// Space complexity
+
+// O(1) constant
+function sayHiNTimes(n) {
+  for (let i = 0; i < n; i++) {
+    console.log("hi");
+  }
+}
+
+// O(1) constant
+function fullName(firstName, lastName){
+  console.log(firstName + " " + lastName);
+}
+
+// O(n) linear
+function arrayOfHiNTimes(n) {
+  const hiArray = [];
+  for (let i = 0; i < n; i++) {
+    hiArray[i] = "hi";
+  }
+  return hiArray;
+}
+
+// O(1) constant
+function getLargestItem(items) {
+  let largest = -Number.MAX_VALUE;
+  items.forEach((item) => {
+    if (item > largest) {
+      largest = item;
+    }
+  });
+  return largest;
+}
