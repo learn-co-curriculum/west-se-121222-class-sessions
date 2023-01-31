@@ -173,5 +173,23 @@ def big_shoe_rebounds
   big_shoe_player[:rebounds]
 end
 
+# BONUS
+
+def most_points_scored
+  all_players.max_by {|player| player[:points]}[:player_name]
+end
+
+def winning_team
+  # iterate the game hash, sum the points of each team, store sum in new hash with team name
+  totals = game_hash.map {|location, team_data| {team_name: team_data[:team_name], total_points: team_data[:players].sum {|player| player[:points]}}}
+  # binding.pry
+  # call max on array with new hashes
+  totals.max_by {|team| team[:total_points]}
+end
+
+def player_with_longest_name
+  all_players.max_by {|player| player[:player_name].length}
+end
+
 # binding.pry
 0
