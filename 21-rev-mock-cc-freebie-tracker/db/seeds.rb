@@ -1,3 +1,7 @@
+Dev.destroy_all
+Company.destroy_all
+Freebie.destroy_all
+
 puts "Creating companies..."
 Company.create(name: "Google", founding_year: 1998)
 Company.create(name: "Facebook", founding_year: 2004)
@@ -11,6 +15,15 @@ Dev.create(name: "Mr. Meseeks")
 Dev.create(name: "Gazorpazop")
 
 puts "Creating freebies..."
+items = ["water bottle", "pen", "sticker", "car", "socks", "USB stick", "tote bag"]
+8.times {
+    Freebie.create(
+        dev: Dev.all.sample,
+        company: Company.all.sample,
+        value: rand(2..22),
+        item_name: items.sample
+    )
+}
 
 # ***************************************************************
 # * TODO: create freebies! Remember, a freebie belongs to a dev *
