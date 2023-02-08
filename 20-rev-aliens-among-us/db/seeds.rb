@@ -31,7 +31,7 @@ Visitation.destroy_all
 
 20.times {
     Visitation.create(
-        date: Date.new,
+        date: Faker::Date.between(from: '1998-01-01', to: '2023-02-06'),
         alien_id: Alien.ids.sample,
         earthling: Earthling.all.sample
     )
