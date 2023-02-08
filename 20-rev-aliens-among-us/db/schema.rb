@@ -10,13 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_07_182130) do
+ActiveRecord::Schema.define(version: 2023_02_07_232227) do
 
   create_table "aliens", force: :cascade do |t|
     t.string "name"
     t.string "earth_disguise_name"
     t.string "home_planet"
     t.integer "light_years_to_home_planet"
+  end
+
+  create_table "earthlings", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "job"
+  end
+
+  create_table "visitations", force: :cascade do |t|
+    t.datetime "date"
+    t.integer "alien_id"
+    t.integer "earthling_id"
+    t.index ["alien_id"], name: "index_visitations_on_alien_id"
+    t.index ["earthling_id"], name: "index_visitations_on_earthling_id"
   end
 
 end

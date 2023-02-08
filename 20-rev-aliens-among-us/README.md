@@ -57,21 +57,21 @@ Create your migrations.
 
 ## Earthling
 
-- `Earthling#visitations` returns all the visitations for an earthling
-- `Earthling#aliens` returns every alien that has visited that earthling
-- `Earthling#full_name` returns the combination of the human's first name and last name
-- `Earthling.filter_by_job(job)` takes in a job as a string and returns all earthlings with the specified job
+- [x] `Earthling#visitations` returns all the visitations for an earthling
+- [x] `Earthling#aliens` returns every alien that has visited that earthling
+- [x] `Earthling#full_name` returns the combination of the human's first name and last name
+- [x] `Earthling.filter_by_job(job)` takes in a job as a string and returns all earthlings with the specified job
 
 ## Alien
 
-- `Alien#visitations` returns all the visitations that alien has been involved in
-- `Alien#earthlings` returns every earthling the alien has visited
-- `Alien#visit(earthling)` takes in an instance of an earthling and creates a visitation linking that earthling and alien for today's date
+- [x] `Alien#visitations` returns all the visitations that alien has been involved in
+- [x] `Alien#earthlings` returns every earthling the alien has visited
+- [x] `Alien#visit(earthling)` takes in an instance of an earthling and creates a visitation linking that earthling and alien for today's date
 - `Alien#total_light_years_traveled` returns the light years from the alien's home planet multiplied by the number of visitations for that alien ... times two (because they have to travel both ways right?)
 - `Alien.most_frequent_visitor` returns the alien with the most visitations
 - `Alien.average_light_years_to_home_planet` returns the average distance for all aliens to their home planets
 
 ## Visitation
 
-- `Visitation#alien` returns the alien involved in the visitation
-- `Visitation#earthling` returns the earthling involved in the visitation
+- [x] `Visitation#alien` returns the alien involved in the visitation
+- [x] `Visitation#earthling` returns the earthling involved in the visitation
