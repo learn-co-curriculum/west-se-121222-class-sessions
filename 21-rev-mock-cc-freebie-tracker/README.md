@@ -118,23 +118,23 @@ is "freebie".
 
 #### Freebie
 
-- `Freebie#dev`
+- [x] `Freebie#dev`
   - returns the `Dev` instance for this Freebie
-- `Freebie#company`
+- [x] `Freebie#company`
   - returns the `Company` instance for this Freebie
 
 #### Company
 
-- `Company#freebies`
+- [x] `Company#freebies`
   - returns a collection of all the freebies for the Company
-- `Company#devs`
+- [x] `Company#devs`
   - returns a collection of all the devs who collected freebies from the Company
 
 #### Dev
 
-- `Dev#freebies`
+- [x] `Dev#freebies`
   - returns a collection of all the freebies that the Dev has collected
-- `Dev#companies`
+- [x] `Dev#companies`
   - returns a collection of all the companies that the Dev has collected
     freebies from
 
@@ -147,7 +147,7 @@ companies for the first dev in the database based on your seed data; and
 
 #### Freebie
 
-- `Freebie#print_details`
+- [x] `Freebie#print_details`
   - should return a string formatted as follows:
     `{insert dev's name} owns a {insert freebie's item_name} from {insert company's name}`
 
