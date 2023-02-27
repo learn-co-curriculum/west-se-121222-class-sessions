@@ -31,6 +31,8 @@ relationships:
 - An apartment has many tenants and has many leases
 - A lease belongs to an apartment and belongs to a tenant
 
+Tenant -< Lease >- Apartment
+
 The models should have the following attributes (along with any attributes
 needed to create the relationships defined above):
 
