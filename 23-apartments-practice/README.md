@@ -51,8 +51,8 @@ to the database.
 
 As a user, I can:
 
-- Create, read, update and delete **Apartments**
-- Create, read, update and delete **Tenants**
+- [x] Create, read, update and delete **Apartments**
+- [x] Create, read, update and delete **Tenants**
 - Create and delete **Lease**
 
 Follow good API design practices and use RESTful routing conventions. Make sure
