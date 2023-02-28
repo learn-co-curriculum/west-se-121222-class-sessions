@@ -1,9 +1,18 @@
 class GymsController < ApplicationController
 
-    before_action :set_gym
+    before_action :set_gym, except: :index
+
+    def index
+        render json: Gym.all
+    end
 
     def show
-        render json: @gym
+        render json: @gym, serializer: GymWithClientsSerializer
+    end
+
+    def update
+        @gym.update!(gym_params)
+        render json: @gym, status: :accepted
     end
 
     def destroy
@@ -15,5 +24,9 @@ class GymsController < ApplicationController
 
     def set_gym
         @gym = Gym.find(params[:id])
+    end
+
+    def gym_params
+        params.permit(:name, :address)
     end
 end

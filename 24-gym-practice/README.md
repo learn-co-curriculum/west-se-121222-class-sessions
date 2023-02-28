@@ -102,6 +102,6 @@ A user should be able to:
 
 ### Bonus
 
-- On client show route, send response that includes total amount for all
+- [x] On client show route, send response that includes total amount for all
   membership for that client.
-- Create index and update routes for gym and client
+- [x] Create index and update routes for gym and client
