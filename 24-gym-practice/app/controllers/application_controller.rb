@@ -13,5 +13,13 @@ class ApplicationController < ActionController::API
         render json: { "error": "#{exception.model} not found"}, status: :not_found
     end
 
-    
+    # The methods below are able to derive the model class from the controller path of the request and then use that to find an instance of the model class
+
+    # def resource_class
+    #     controller_path.classify.constantize
+    # end
+
+    # def set_resource
+    #     @resource = resource_class.find(params[:id])
+    # end
 end

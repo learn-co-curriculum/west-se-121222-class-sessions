@@ -7,7 +7,7 @@ class GymsController < ApplicationController
     end
 
     def show
-        render json: @gym, serializer: GymWithClientsSerializer
+        render json: @gym, serializer: GymWithClientsSerializer # not in deliverables
     end
 
     def update

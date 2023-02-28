@@ -7,8 +7,8 @@ class TenantsController < ApplicationController
     end
 
     def show
-        render json: @tenant
-        # render json: @tenant, include: ['leases', 'leases.apartment'] # this would also show the apartment objects associated with each lease
+        # render json: @tenant
+        render json: @tenant, include: ['leases', 'leases.apartment'] # this would also show the apartment objects associated with each lease
     end
     
     def create
