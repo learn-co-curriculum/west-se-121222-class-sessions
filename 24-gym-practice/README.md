@@ -68,17 +68,17 @@ A user should be able to:
 
 - **Create a new membership**
 
-  - New membership require a gym_id, client_id, and membership charge.
-  - Validation: A client can have only one membership with gym
+  - [x] New membership require a gym_id, client_id, and membership charge.
+  - [x] Validation: A client can have only one membership with gym
 
 - **View one specific gym**
 
-  - if `Gym` exists, return JSON data for the gym
-  - else return error with a status code
+  - [x] if `Gym` exists, return JSON data for the gym
+  - [x] else return error with a status code
 
 - **Delete a gym**
 
-  - If the `Gym` exists, it should be removed from the database, along with
+  - [x] If the `Gym` exists, it should be removed from the database, along with
     any `Membership`s that are associated with it (a `Membership` belongs
     to a `Gym`, so you need to delete the `Membership`s before the
     `Gym` can be deleted).
@@ -86,7 +86,7 @@ A user should be able to:
     After deleting the `Gym`, return an _empty_ response body, along with the
     appropriate HTTP status code.
 
-    If the `Gym` does not exist, return the following JSON data, along with
+   - [x]  If the `Gym` does not exist, return the following JSON data, along with
     the appropriate HTTP status code:
 
     ```json
@@ -97,8 +97,8 @@ A user should be able to:
 
 - **View one specific client**
 
-  - if `Client` exists, return JSON data for the Client
-  - else return error with a status code
+  - [x] if `Client` exists, return JSON data for the Client
+  - [x] else return error with a status code
 
 ### Bonus
 
