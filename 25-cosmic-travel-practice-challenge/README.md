@@ -65,7 +65,7 @@ If you use a Rails generator to create the models, make sure to use the
 
 Add any code needed in the model files to establish the relationships.
 
-Then, run the migrations and seed file:
+- [x] Then, run the migrations and seed file:
 
 ```console
 $ rails db:migrate db:seed
@@ -83,8 +83,8 @@ Add validations to the `Scientist` model:
 
 Add validations to the `Mission` model:
 
-- must have a `name`, a `scientist` and a `planet`
-- a `scientist` cannot join missions to the same `planet` twice
+- [x] must have a `name`, a `scientist` and a `planet`
+- [x] a `scientist` cannot join missions to the same `planet` twice
 
 ## Routes
 
