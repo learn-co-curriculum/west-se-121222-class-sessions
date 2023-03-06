@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { UserContext } from '../context/user'
 import { useHistory } from "react-router";
 import styled from "styled-components";
 import ReactMarkdown from "react-markdown";
 import { Button, Error, FormField, Input, Label, Textarea } from "../styles";
 
-function NewRecipe({ user }) {
+function NewRecipe() {
   const [title, setTitle] = useState("My Awesome Recipe");
   const [minutesToComplete, setMinutesToComplete] = useState("30");
   const [instructions, setInstructions] = useState(`Here's how you make it.
@@ -21,6 +22,9 @@ function NewRecipe({ user }) {
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const history = useHistory();
+
+  const [user, _] = useContext(UserContext)
+
 
   function handleSubmit(e) {
     e.preventDefault();

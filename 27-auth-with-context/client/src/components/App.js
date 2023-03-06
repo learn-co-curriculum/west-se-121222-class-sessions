@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useContext } from "react";
+import { UserContext } from '../context/user'
 import { Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Login from "../pages/Login";
@@ -6,8 +7,11 @@ import RecipeList from "../pages/RecipeList";
 import NewRecipe from "../pages/NewRecipe";
 
 function App() {
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
 
+  const [user, setUser] = useContext(UserContext)
+  console.log(user)
+  
   useEffect(() => {
     // auto-login
     fetch("/me").then((r) => {
@@ -17,15 +21,15 @@ function App() {
     });
   }, []);
 
-  if (!user) return <Login onLogin={setUser} />;
+  if (!user) return <Login />;
 
   return (
     <>
-      <NavBar user={user} setUser={setUser} />
+      <NavBar />
       <main>
         <Switch>
           <Route path="/new">
-            <NewRecipe user={user} />
+            <NewRecipe />
           </Route>
           <Route path="/">
             <RecipeList />
