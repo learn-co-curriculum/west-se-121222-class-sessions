@@ -25,7 +25,7 @@ export default function Pet({pet}) {
         {pet.isAdopted ? (
           <button className="ui disabled button">Already adopted</button>
         ) : (
-          <button className="ui primary button" onClick={handleAdoptedClick}>
+          <button className="ui primary button" onClick={""}>
             Adopt pet
           </button>
         )}
