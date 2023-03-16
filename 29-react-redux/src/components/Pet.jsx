@@ -15,6 +15,10 @@ export default function Pet({pet}) {
       updatePet({id: pet.id, isAdopted: true})
     }  
 
+    if (isLoading) {
+      return <h1>Loading...</h1>
+    }
+
     return (
     <div className="card" data-testid="pet">
       <div className="content">

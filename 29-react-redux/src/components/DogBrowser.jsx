@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
+import { useFetchBreedsQuery } from '../app/services/dogsApiSlice';
+
 
 export default function DogBrowser() {
 
-    
+    const [numDogs, setNumDogs] = useState(10);
+
+    const { data=[], isFetching } = useFetchBreedsQuery(numDogs)
+
     return (
         <div>
             <h1>Browse Dogs by Breed</h1>

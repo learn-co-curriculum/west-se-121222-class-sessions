@@ -12,7 +12,7 @@ function App() {
         <h1>Redux Shelter</h1>
         <Budget />
         <PetBrowser />
-        {/* <DogBrowser /> */}
+        <DogBrowser />
       </header>
     </div>
   )
