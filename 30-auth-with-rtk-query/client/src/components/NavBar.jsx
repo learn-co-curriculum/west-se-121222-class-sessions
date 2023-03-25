@@ -2,14 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "../styles";
+import {useLogoutUserMutation} from '../app/services/userApi'
 
-function NavBar({ user, setUser }) {
+function NavBar({ refetch, reset }) {
+  
+  const [logoutUser] = useLogoutUserMutation()
+  
   function handleLogoutClick() {
-    fetch("/logout", { method: "DELETE" }).then((r) => {
-      if (r.ok) {
-        setUser(null);
-      }
-    });
+    logoutUser()
+    reset()
+    refetch()
   }
 
   return (

@@ -8,7 +8,7 @@ function RecipeList() {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    fetch("/recipes")
+    fetch("/api/recipes")
       .then((r) => r.json())
       .then(setRecipes);
   }, []);

@@ -4,7 +4,7 @@ import NavBar from "./NavBar";
 import Login from "../pages/Login";
 import RecipeList from "../pages/RecipeList";
 import NewRecipe from "../pages/NewRecipe";
-import { useAutoLoginQuery } from '../app/services/userApi'
+import { useAutoLoginQuery, userApi } from '../app/services/userApi'
 
 function App() {
   // const [user, setUser] = useState(null);
@@ -18,13 +18,17 @@ function App() {
   //   });
   // }, []);
 
-  const { data: user=null, isFetching} = useAutoLoginQuery()
+  const { data: user=null, isFetching, error, refetch } = useAutoLoginQuery()
+  console.log("🚀 ~ file: App.jsx:22 ~ App ~ error:", error)
+  console.log("🚀 ~ file: App.jsx:22 ~ App ~ user:", user)
 
-  if (!user) return <Login  />;
+  const resetUserState = () => userApi.util.resetApiState()
+
+  if (!user) return <Login refetch={refetch} />;
 
   return (
     <>
-      <NavBar user={user}  />
+      <NavBar refetch={refetch} reset={resetUserState} />
       <main>
         <Switch>
           <Route path="/new">

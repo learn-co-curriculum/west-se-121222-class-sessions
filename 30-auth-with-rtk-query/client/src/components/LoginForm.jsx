@@ -1,29 +1,38 @@
 import React, { useState } from "react";
 import { Button, Error, Input, FormField, Label } from "../styles";
+import { useLoginUserMutation } from '../app/services/userApi'
 
-function LoginForm({ onLogin }) {
+function LoginForm({ refetch }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  // const [errors, setErrors] = useState([]);
+  // const [isLoading, setIsLoading] = useState(false);
+
+  const [loginUser, {isLoading, error}] = useLoginUserMutation()
 
   function handleSubmit(e) {
     e.preventDefault();
-    setIsLoading(true);
-    fetch("/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username, password }),
-    }).then((r) => {
-      setIsLoading(false);
-      if (r.ok) {
-        r.json().then((user) => onLogin(user));
-      } else {
-        r.json().then((err) => setErrors(err.errors));
-      }
-    });
+    const credentials = {
+      username,
+      password
+    }
+    loginUser(credentials)
+    // refetch()
+    // setIsLoading(true);
+    // fetch("/login", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({ username, password }),
+    // }).then((r) => {
+    //   setIsLoading(false);
+    //   if (r.ok) {
+    //     r.json().then((user) => onLogin(user));
+    //   } else {
+    //     r.json().then((err) => setErrors(err.errors));
+    //   }
+    // });
   }
 
   return (
@@ -54,7 +63,7 @@ function LoginForm({ onLogin }) {
         </Button>
       </FormField>
       <FormField>
-        {errors.map((err) => (
+        {error?.map((err) => (
           <Error key={err}>{err}</Error>
         ))}
       </FormField>

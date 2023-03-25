@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Error, Input, FormField, Label, Textarea } from "../styles";
+import { useCreateUserMutation } from '../app/services/userApi'
 
 function SignUpForm({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -7,33 +8,43 @@ function SignUpForm({ onLogin }) {
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [bio, setBio] = useState("");
-  const [errors, setErrors] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  // const [errors, setErrors] = useState([]);
+  // const [isLoading, setIsLoading] = useState(false);
+
+  const [createUser, {isLoading, error}] = useCreateUserMutation()
 
   function handleSubmit(e) {
     e.preventDefault();
-    setErrors([]);
-    setIsLoading(true);
-    fetch("/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username,
-        password,
-        password_confirmation: passwordConfirmation,
-        image_url: imageUrl,
-        bio,
-      }),
-    }).then((r) => {
-      setIsLoading(false);
-      if (r.ok) {
-        r.json().then((user) => onLogin(user));
-      } else {
-        r.json().then((err) => setErrors(err.errors));
-      }
-    });
+    const newUser = {
+      username,
+      password,
+      password_confirmation: passwordConfirmation,
+      image_url: imageUrl,
+      bio
+    }
+    createUser(newUser)
+    // setErrors([]);
+    // setIsLoading(true);
+    // fetch("/signup", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     username,
+    //     password,
+    //     password_confirmation: passwordConfirmation,
+    //     image_url: imageUrl,
+    //     bio,
+    //   }),
+    // }).then((r) => {
+    //   setIsLoading(false);
+    //   if (r.ok) {
+    //     r.json().then((user) => onLogin(user));
+    //   } else {
+    //     r.json().then((err) => setErrors(err.errors));
+    //   }
+    // });
   }
 
   return (
@@ -90,7 +101,7 @@ function SignUpForm({ onLogin }) {
         <Button type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button>
       </FormField>
       <FormField>
-        {errors.map((err) => (
+        {error?.map((err) => (
           <Error key={err}>{err}</Error>
         ))}
       </FormField>
