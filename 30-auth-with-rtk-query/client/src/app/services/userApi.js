@@ -25,18 +25,16 @@ export const userApi = createApi({
                     url: '/logout',
                     method: 'DELETE'
                 }),
-                // async onQueryStarted(_, {dispatch, queryFulfilled}) {
-                //     userApi.util.updateQueryData('autoLogin', undefined, (draft) => {
-                //         Object.keys(draft).forEach(key => delete draft[key])
-                //     })
-                //     try {
-                //         await queryFulfilled
-                //         // dispatch(userApi.util.resetApiState())
-                //     } catch {
-                //         dispatch(userApi.util.invalidateTags(['User']))
-                //         // dispatch(userApi.util.resetApiState())
-                //     }
-                // }
+                // invalidatesTags: ['User']
+                async onQueryStarted(_, {dispatch, queryFulfilled}) {
+                    try {
+                        await queryFulfilled
+                        dispatch(userApi.util.resetApiState())
+                    } catch {
+                        dispatch(userApi.util.invalidateTags(['User']))
+                        // dispatch(userApi.util.resetApiState())
+                    }
+                }
             }),
             loginUser: builder.mutation({
                 query: ({...body}) => ({

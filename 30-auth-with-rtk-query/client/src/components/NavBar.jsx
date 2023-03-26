@@ -10,8 +10,9 @@ function NavBar({ refetch, reset }) {
   
   function handleLogoutClick() {
     logoutUser()
-    reset()
-    refetch()
+    // reset()
+    // refetch()
+    // fetch('/api/logout', {method: 'DELETE'})
   }
 
   return (

@@ -4,7 +4,7 @@ import LoginForm from "../components/LoginForm";
 import SignUpForm from "../components/SignUpForm";
 import { Button } from "../styles";
 
-function Login({ refetch }) {
+function Login() {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
@@ -12,7 +12,7 @@ function Login({ refetch }) {
       <Logo>Reciplease</Logo>
       {showLogin ? (
         <>
-          <LoginForm refetch={refetch} />
+          <LoginForm />
           <Divider />
           <p>
             Don't have an account? &nbsp;
@@ -23,7 +23,7 @@ function Login({ refetch }) {
         </>
       ) : (
         <>
-          <SignUpForm onLogin={onLogin} />
+          <SignUpForm  />
           <Divider />
           <p>
             Already have an account? &nbsp;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Error, Input, FormField, Label } from "../styles";
 import { useLoginUserMutation } from '../app/services/userApi'
 
-function LoginForm({ refetch }) {
+function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   // const [errors, setErrors] = useState([]);
@@ -17,7 +17,7 @@ function LoginForm({ refetch }) {
       password
     }
     loginUser(credentials)
-    // refetch()
+  
     // setIsLoading(true);
     // fetch("/login", {
     //   method: "POST",
@@ -63,7 +63,7 @@ function LoginForm({ refetch }) {
         </Button>
       </FormField>
       <FormField>
-        {error?.map((err) => (
+        {error?.data.errors.map((err) => (
           <Error key={err}>{err}</Error>
         ))}
       </FormField>

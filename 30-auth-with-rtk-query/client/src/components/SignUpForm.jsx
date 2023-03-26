@@ -101,7 +101,7 @@ function SignUpForm({ onLogin }) {
         <Button type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button>
       </FormField>
       <FormField>
-        {error?.map((err) => (
+        {error?.data.errors.map((err) => (
           <Error key={err}>{err}</Error>
         ))}
       </FormField>
